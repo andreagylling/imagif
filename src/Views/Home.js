@@ -1,23 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import logo from '../imagif.svg';
 import Search from '../Components/Search';
 import Footer from '../Components/Footer';
 import SearchResults from '../Components/SearchResults';
-
-
-const Header = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`;
-
-const Logo = styled.img`
-  width: 50%
-`;
-
+import Header from '../Components/Header';
 
 require('dotenv').config();
 const key = process.env.REACT_APP_API_KEY;
@@ -35,13 +20,9 @@ export default function Home() {
       .then(data => setGifs(data.data))
   }
 
-
-
   return (
     <>
-      <Header>
-        <Logo src={logo} alt="logo" />
-      </Header>
+      <Header />
 
       <Search onClick={fetchSearch} />
       <SearchResults gifs={gifs} />

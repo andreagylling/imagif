@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+import Footer from '../Components/Footer';
+import Header from '../Components/Header';
 
 
 const Container = styled.div`
-  margin: 40px auto;
+  margin: 0px auto;
   position: relative;
   border: none;
   border-radius: 8px;
@@ -76,29 +78,31 @@ export default function Enlarge(props) {
 
   return (
     <>
+      <Header />
       <Container id="enlarged-gif">
         <CloseBtn onClick={runRedirect}><i className="fas fa-times"></i></CloseBtn>
-        {redirect ? <Redirect to='/'/> : null}
-        {gif && gif.map ( (gif, index) => {
-        return <div key={index}>
-          {
-          document.queryCommandSupported('copy') &&
-            <div>
-              <CopyBtn onClick={copyToClipboard}>Copy to clipboard</CopyBtn> 
-              {copySuccess}
-            </div>
-          }
-          <form>
-            <Textarea
-              readOnly={true}
-              ref={textAreaRef}
-              value={gif.bitly_url}
-            />
-          </form>
-          <img  src={gif.images.original.url} alt={gif.title}></img>
-        </div>
+        {redirect ? <Redirect to='/' /> : null}
+        {gif && gif.map((gif, index) => {
+          return <div key={index}>
+            {
+              document.queryCommandSupported('copy') &&
+              <div>
+                <CopyBtn onClick={copyToClipboard}>Copy to clipboard</CopyBtn>
+                {copySuccess}
+              </div>
+            }
+            <form>
+              <Textarea
+                readOnly={true}
+                ref={textAreaRef}
+                value={gif.bitly_url}
+              />
+            </form>
+            <img src={gif.images.original.url} alt={gif.title}></img>
+          </div>
         })}
       </Container>
+      <Footer />
     </>
   )
 }
