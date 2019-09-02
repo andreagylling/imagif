@@ -43,6 +43,7 @@ const Textarea = styled.textarea`
   background-color: transparent;
   border: none;
   resize: none;
+  text-align: center;
 `;
 
 require('dotenv').config();
