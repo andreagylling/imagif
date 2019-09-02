@@ -10,7 +10,7 @@ const Img = styled.img`
 export default function GifGrid (props) {
     return (
         <div>
-            <Img src={props.url} alt={props.description}></Img>
+            <Img id={props.id} src={props.url} alt={props.description}></Img>
         </div>
     )
 }
