@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Form = styled.form`
-  margin-top: -5px;
+  margin-top: -10px;
   padding: 20px;
   background-color: #91c1e5;
 `;
@@ -26,6 +26,18 @@ const Button = styled.button`
   color: #F2F2E8;
   background-color: #91c1e5;
   border: none;
+  margin-top: 30px;
+`;
+
+const RandomBtn = styled.button`
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: bold;
+  color: #F2F2E8;
+  background-color: #91c1e5;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #F2F2E8;
 `;
 
 
@@ -33,6 +45,9 @@ export default function Search(props) {
   return (
     <>
       <Form>
+        <RandomBtn onClick={props.onRndmClick}>Get random gif</RandomBtn>
+        <RandomBtn onClick={props.onTrendClick}>Get trending gifs</RandomBtn>
+        <br/>
         <Input id="search" className="search-field" type="text" />
         <Button className="search-btn" onClick={props.onClick}>Search</Button>
       </Form>

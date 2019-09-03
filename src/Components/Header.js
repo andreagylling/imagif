@@ -12,7 +12,7 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.img`
-  width: 50%
+  width: 50%;
 `;
 
 export default function Header() {
